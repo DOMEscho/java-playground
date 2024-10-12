@@ -18,11 +18,38 @@ public class FortniteTest {
         hitbox = new Hitbox(new Point2D(0, 0));
         bullet = new Bullet(new Point2D(100, 100));
         expected = false;
-        actual = CollisionDetector.hasCollision(hitbox, bullet);
+        actual = CollisionDetector.hasCollision(hitbox, bullet); 
         if (expected != actual) {
             fail(expected, actual);
         } 
+
+        // Test 3
+        hitbox = new Hitbox(new Point2D(0, 0));
+        bullet = new Bullet(new Point2D(50, 100)); // RechtsUnten
+        expected = true;
+        actual = CollisionDetector.hasCollision(hitbox, bullet);
+        if(expected != actual){
+            fail(expected, actual);
+        }
         
+        //Test 4
+        hitbox = new Hitbox(new Point2D(0, 0));
+        bullet = new Bullet(new Point2D(0, 100));
+        expected = true;
+        actual = CollisionDetector.hasCollision(hitbox, bullet);
+        if(expected != actual){
+            fail(expected, actual);
+        }
+
+        // Test 5
+        hitbox = new Hitbox(new Point2D(0, 0));
+        bullet = new Bullet(new Point2D(-50, -50));
+        expected = false;
+        actual = CollisionDetector.hasCollision(hitbox, bullet);
+        if(expected != actual){
+            fail(expected, actual);
+        }
+
         System.out.println("FortniteTest: Finished.");
     }
     
